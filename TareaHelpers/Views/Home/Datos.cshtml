@@ -1,0 +1,39 @@
+﻿@model TareaHelpers.Models.Persona
+@{
+    ViewBag.Title = "Datos";
+}
+<div class="jumbotron"style="margin-left:auto;margin-right:auto;width:50%;background: white">
+    <h2 class="text-primary">Bienvenido @Model.nombre !!</h2>
+    <br />
+    <h5><b>Nombre:</b> @Model.nombre</h5>
+    <h5><b>Apellido: </b>@Model.apellido</h5>
+    <h5><b>Cedula: </b> @Model.cedula</h5>
+    <h5><b>Correo Electrónico: </b> @Model.correo</h5>
+    <h5><b>Telefono: </b> @Model.telefono</h5>
+    <h5><b>Genero: </b>@Model.genero</h5>
+    <h5><b>Estado civil: </b> @Model.estado_civil</h5>
+    
+    @{ 
+        string stringhobbies = "";
+        for (int x =0;x< Model.hobbies.Count;x++)
+        {
+            if (x==0)
+            {
+                stringhobbies = stringhobbies + Model.hobbies[x];
+            }
+            else
+            {
+                stringhobbies = stringhobbies + ", " + Model.hobbies[x];
+            }
+
+        }
+    }
+    <h5><b>Hobbies: </b>@stringhobbies</h5>
+
+
+
+</div>
+
+
+
+

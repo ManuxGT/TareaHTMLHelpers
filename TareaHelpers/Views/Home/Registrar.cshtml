@@ -1,0 +1,92 @@
+﻿@model TareaHelpers.Models.Persona
+@{
+    /**/
+
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Registrar";
+}
+<div class="jumbotron" style="margin-left:auto;margin-right:auto;width:50%;background: white">
+
+    <h2 class="text-primary">Registrar</h2>
+
+    <h6>@ViewBag.info</h6>
+
+    <br />
+    @Html.AntiForgeryToken()
+
+    @using (Html.BeginForm("Registrar", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+        @Html.TextBoxFor(m => m.nombre, new { @placeholder = "Nombre", @class = "form-control" });
+        @Html.ValidationMessageFor(m => m.nombre, "", new { @class = "text-danger" });
+        <br />
+        @Html.TextBoxFor(m => m.apellido, new { @placeholder = "Apellido", @class = "form-control" });
+        @Html.ValidationMessageFor(m => m.apellido, "", new { @class = "text-danger" });
+        <br />
+        @Html.TextBoxFor(m => m.cedula, new { @placeholder = "Cedula", @class = "form-control" });
+        @Html.ValidationMessageFor(m => m.cedula, "", new { @class = "text-danger" });
+        <br />
+        @Html.TextBoxFor(m => m.edad, new { @placeholder = "Edad", @class = "form-control" });
+        @Html.ValidationMessageFor(m => m.edad, "", new { @class = "text-danger" });
+        <br />
+        @Html.TextBoxFor(m => m.correo, new { @placeholder = "Correo Electrónico", @class = "form-control" });
+        <p style="font-size:14px" class="text-danger">@ViewBag.ErrorPerez</p>
+        <br />
+
+        @Html.TextBoxFor(m => m.telefono, new { @placeholder = "Telefono", @class = "form-control" });
+        <br />
+
+        @Html.Label("Género", new { style = "margin-right:10px" });
+        @Html.DropDownListFor(m=>m.genero, new List<SelectListItem> {
+        new SelectListItem {Text="Masculino", Value="Masculino" , Selected=true },
+        new SelectListItem {Text="Femenino", Value = "Femenino" }
+        }, new {style="margin-right:5px" });
+        <br />
+        <br />
+        <br />
+        @Html.Label("Estado civil", new { @class = "text-secondary", style = "font-size:16px" });
+        <br />
+        @Html.Label("Soltero", new { @class = "text-muted", @value = "true", style = "margin-left:10px;margin-right:3px" });
+        @Html.RadioButtonFor(m => m.estado_civil, "Soltero");
+
+        @Html.Label("Casado", new { @class = "text-muted", style = "margin-left:10px;margin-right:3px" });
+        @Html.RadioButtonFor(m => m.estado_civil, "Casado");
+
+        @Html.Label("Viudo", new { @class = "text-muted", style = "margin-left:10px;margin-right:3px" });
+        @Html.RadioButtonFor(m => m.estado_civil, "Viudo");
+
+        @Html.Label("Union Libre", new { @class = "text-muted", style = "margin-left:10px;margin-right:3px" });
+        @Html.RadioButtonFor(m => m.estado_civil, "Union Libre");
+        <br /><br />
+
+        @Html.Label("Hobbies", "", new { @class = "text-secondary", style = "font-size:16px" });
+
+        <br />
+        @Html.CheckBox("Videojuegos", new { @class = "text-muted" });
+        @Html.Label("Videojuegos", new { @class = "text-muted", style = "margin-right:10px;margin-left:3px" });
+        @Html.CheckBox("Gimnasio");
+        @Html.Label("Ir al gimnasio", new { @class = "text-muted", style = "margin-right:10px;margin-left:3px" });
+        @Html.CheckBox("Leer");
+        @Html.Label("Leer", new { @class = "text-muted", style = "margin-right:10px;margin-left:3px" });
+        @Html.CheckBox("Musica");
+        @Html.Label("Escuchar música", new { @class = "text-muted", style = "margin-right:10px;margin-left:3px" });
+        <br /><br />
+
+        <input type="submit" value="Enviar" />
+
+
+
+
+
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

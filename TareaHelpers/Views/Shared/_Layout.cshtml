@@ -1,6 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <style>
+        body {
+            background: rgba(23,33,212,1);
+            background: -moz-linear-gradient(left, rgba(23,33,212,1) 0%, rgba(41,184,229,1) 99%, rgba(188,224,238,1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(23,33,212,1)), color-stop(99%, rgba(41,184,229,1)), color-stop(100%, rgba(188,224,238,1)));
+            background: -webkit-linear-gradient(left, rgba(23,33,212,1) 0%, rgba(41,184,229,1) 99%, rgba(188,224,238,1) 100%);
+            background: -o-linear-gradient(left, rgba(23,33,212,1) 0%, rgba(41,184,229,1) 99%, rgba(188,224,238,1) 100%);
+            background: -ms-linear-gradient(left, rgba(23,33,212,1) 0%, rgba(41,184,229,1) 99%, rgba(188,224,238,1) 100%);
+            background: linear-gradient(to right, rgba(23,33,212,1) 0%, rgba(41,184,229,1) 99%, rgba(188,224,238,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1721d4', endColorstr='#bce0ee', GradientType=1 );
+        }
+
+    </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
@@ -8,35 +21,49 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
+
+    @{
+/*
+<!--
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        @//Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @//class = "navbar-brand" })
     </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>@//Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@//Html.ActionLink("About", "About", "Home")</li>
+            <li>@//Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+    </div>
+</div>
+</div>
+
+-->
+    */
+
+
+     }
+    
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        
+        
     </div>
+
+   
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
